@@ -40,7 +40,10 @@
 					newStop = s.stopper != null ? $(s.stopper).position().top + $(s.stopper).height() : null,
 					newBottom = s.stickyElement.offset().top - s.stickyElement.height(),
 					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0) : false;
-				if (scrollTop <= etse || $window.width() < s.minWidthToStick) {
+					
+					var innerWidth = $('body').innerWidth();
+					
+				if (scrollTop <= etse || innerWidth < s.minWidthToStick) {
 					if (s.currentTop !== null) {
 						s.stickyElement
 							.css('position', '')
