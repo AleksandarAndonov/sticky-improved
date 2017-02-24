@@ -1,0 +1,18 @@
+{
+  "name": "stickyjs",
+  "version": "1.0.0",
+  "authors": [
+    "Sebastian Dawidziak <sebastian.dawidziak@profitroom.pl>",
+	"Martin Pavlovski <martin.pavlovski@gmail.com>"
+  ],
+  "main": "stickyjs.min.js",
+  "license": "MIT",
+  "homepage": "https://github.com/MartinBT/sticky-improved",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

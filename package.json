@@ -1,0 +1,24 @@
+{
+  "name": "sticky-improved",
+  "version": "1.0.0",
+  "description": "Improved jQuery sticky plugin",
+  "main": "sticky.js",
+  "scripts": {
+    "test": "sticky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinBT/sticky-improved.git"
+  },
+  "keywords": [
+    "jquery",
+    "sticky",
+    "sticky-improved"
+  ],
+  "author": "Sebastian Dawidziak & Martin Pavlovski",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/MartinBT/sticky-improved/issues"
+  },
+  "homepage": "https://github.com/MartinBT/sticky-improved#readme"
+}
