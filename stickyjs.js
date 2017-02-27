@@ -15,7 +15,8 @@
 			wrapperClassName: 'sticky-wrapper',
 			center: false,
 			getWidthFrom: null,
-			minWidthToStick: 640
+			minWidthToStick: 640,
+			checkHeight: false
 		},
 		$window = $(window),
 		$document = $(document),
@@ -50,29 +51,64 @@
 							.css('top', '');
 						s.stickyElement.parent().css('height','').css('width','').removeClass(s.className);
 						s.currentTop = null;
+						if (s.checkHeight === true)
+						{
+							s.stickyElement.css('width', '');
+						}
+					} else if (s.currentTop === null && s.checkHeight === true) {
+						s.stickyElement
+							.css('position', '')
+							.css('top', '');
+						s.stickyElement.parent().css('height','').css('width','').removeClass(s.className);
 					}
 				} else {
-					var newTop = documentHeight - s.stickyElement.outerHeight() - s.topSpacing - s.bottomSpacing - scrollTop - extra;
-					if (newTop == 0) {
-						newTop = newTop + s.topSpacing;
-					} else if (isStop) {
-						newTop = (newStop - scrollTop) - s.stickyElement.height() + s.topSpacing;
-					} else {
-						newTop = s.topSpacing;
-					}
-					if (s.currentTop != newTop) {
-						if (typeof s.getWidthFrom !== 'undefined') {
-							s.stickyElement.css('width', $(s.getWidthFrom).width());
+					
+					if (s.checkHeight === false){
+						var newTop = documentHeight - s.stickyElement.outerHeight() - s.topSpacing - s.bottomSpacing - scrollTop - extra;
+						if (newTop == 0) {
+							newTop = newTop + s.topSpacing;
+						} else if (isStop) {
+							newTop = (newStop - scrollTop) - s.stickyElement.height() + s.topSpacing;
+						} else {
+							newTop = s.topSpacing;
 						}
+						if (s.currentTop != newTop) {
+							if (typeof s.getWidthFrom !== 'undefined') {
+								s.stickyElement.css('width', $(s.getWidthFrom).width());
+							}
 
-						s.stickyElement
-							.css('position', 'fixed')
-							.css('top', newTop);
+							s.stickyElement
+								.css('position', 'fixed')
+								.css('top', newTop);
 
-						s.stickyElement.parent().addClass(s.className);
-						s.currentTop = newTop;
-						
-						scroller();
+							s.stickyElement.parent().addClass(s.className);
+							s.currentTop = newTop;
+							
+							scroller();
+						}
+					} else if (s.checkHeight === true && $(s.stopper).height() > s.stickyElement.height()){
+						var newTop = documentHeight - s.stickyElement.outerHeight() - s.topSpacing - s.bottomSpacing - scrollTop - extra;
+						if (newTop == 0) {
+							newTop = newTop + s.topSpacing;
+						} else if (isStop) {
+							newTop = (newStop - scrollTop) - s.stickyElement.height() + s.topSpacing;
+						} else {
+							newTop = s.topSpacing;
+						}
+						if (s.currentTop != newTop) {
+							if (typeof s.getWidthFrom !== 'undefined') {
+								s.stickyElement.css('width', $(s.getWidthFrom).width());
+							}
+
+							s.stickyElement
+								.css('position', 'fixed')
+								.css('top', newTop);
+
+							s.stickyElement.parent().addClass(s.className);
+							s.currentTop = newTop;
+							
+							scroller();
+						}
 					}
 				}
 			}
@@ -125,7 +161,8 @@
 						stickyWrapper: stickyWrapper,
 						className: o.className,
 						getWidthFrom: o.getWidthFrom,
-						minWidthToStick: o.minWidthToStick
+						minWidthToStick: o.minWidthToStick,
+						checkHeight: o.checkHeight
 					});
 				});
 			},
