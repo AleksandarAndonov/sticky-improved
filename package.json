@@ -1,6 +1,6 @@
 {
   "name": "sticky-improved",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Improved jQuery sticky plugin",
   "main": "sticky.js",
   "scripts": {
