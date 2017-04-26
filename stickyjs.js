@@ -16,7 +16,8 @@
 			center: false,
 			getWidthFrom: null,
 			minWidthToStick: 640,
-			checkHeight: false
+			checkHeight: false,
+			disableInitWidth: false
 		},
 		$window = $(window),
 		$document = $(document),
@@ -136,10 +137,12 @@
 							marginRight: "auto"
 						});
 					}
-
-					stickyElement.parent().css({
-						width: stickyElement.outerWidth(),
-					});
+					
+					if (!o.disableInitWidth){
+						stickyElement.parent().css({
+							width: stickyElement.outerWidth(),
+						});
+					}
 
 					if (stickyElement.css("float") == "right") {
 						stickyElement.css({
@@ -162,7 +165,8 @@
 						className: o.className,
 						getWidthFrom: o.getWidthFrom,
 						minWidthToStick: o.minWidthToStick,
-						checkHeight: o.checkHeight
+						checkHeight: o.checkHeight,
+						disableInitWidth: o.disableInitWidth
 					});
 				});
 			},
