@@ -38,8 +38,8 @@
 			for (var i = 0; i < sticked.length; i++) {
 				var s = sticked[i],
 					elementTop = s.stickyWrapper.offset().top,
-					etse = elementTop - s.topSpacing - extra,
-					newStop = s.stopper != null ? $(s.stopper).position().top + $(s.stopper).height() : null,
+                    etse = elementTop - s.topSpacing - extra,
+                    newStop = s.stopper != null ? ($(s.stopper).position() != null ? $(s.stopper).position().top + $(s.stopper).height() : null) : null,
 					newBottom = s.stickyElement.offset().top - s.stickyElement.height(),
 					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0) : false;
 					
