@@ -1,4 +1,4 @@
-stickyjs-improved
+stickyjs-improved-stopper-fix
 ========
 
 StickyJS is a jQuery plugin that gives you the ability to make any element on your page always stay visible. Sticky wasn't getting updated this has updates and imporvements. It has the same as the original sticky https://github.com/garand/sticky.
@@ -10,3 +10,4 @@ checkHeight ---- Checks the height of the stopper class if it is set to true and
 Height and width get reseted to it's parents height and width on unstickied.
 
 
+Sticky plugin throws error when stopper position is null or undefined
